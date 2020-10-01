@@ -4,17 +4,17 @@ int size,front=-1,rear=-1;
 void insert(int arr[])
 {
     int num;
-    if(rear==size-1)
+    rear=(rear+1)%size;
+    if(front == rear){
         printf("\n\aQueue Overflow!!!\n");
-    else{
-        printf("\nEnter No. For Insertion=");
-        scanf("%d",&num);
-        rear++;
+        if(rear == 0)
+            rear=size-1;
+        else
+            rear=rear-1;
+    }
+    else
         arr[rear]=num;
-        printf("\nInsertion Successful\n");
-        }
-    if(front==-1)
-        front=0;
+    printf("Inserted element =%d\n",num);
 }
 void Delete(int arr[])
 {
